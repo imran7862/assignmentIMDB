@@ -117,14 +117,14 @@ export function MovieInsightsClient() {
         <button
           type="submit"
           disabled={loading}
-          className="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-emerald-400 via-sky-400 to-violet-400 px-4 py-2.5 text-sm font-semibold text-slate-950 shadow-[0_18px_45px_rgba(15,23,42,0.9)] transition-transform duration-150 ease-out hover:scale-[1.02] hover:shadow-[0_20px_60px_rgba(15,23,42,1)] disabled:cursor-not-allowed disabled:opacity-60 sm:px-6"
+          className="inline-flex items-center justify-center rounded-xl bg-linear-to-r from-emerald-400 via-sky-400 to-violet-400 px-4 py-2.5 text-sm font-semibold text-slate-950 shadow-[0_18px_45px_rgba(15,23,42,0.9)] transition-transform duration-150 ease-out hover:scale-[1.02] hover:shadow-[0_20px_60px_rgba(15,23,42,1)] disabled:cursor-not-allowed disabled:opacity-60 sm:px-6"
         >
           {loading ? "Analyzing…" : "Analyze Movie"}
         </button>
       </form>
 
       {error && (
-        <div className="overflow-hidden rounded-2xl border border-rose-500/40 bg-gradient-to-r from-rose-500/10 via-rose-500/10 to-transparent px-4 py-3 text-sm text-rose-100 shadow-[0_0_40px_rgba(248,113,113,0.25)]">
+        <div className="overflow-hidden rounded-2xl border border-rose-500/40 bg-linear-to-r from-rose-500/10 via-rose-500/10 to-transparent px-4 py-3 text-sm text-rose-100 shadow-[0_0_40px_rgba(248,113,113,0.25)]">
           {error}
         </div>
       )}
@@ -219,7 +219,7 @@ export function MovieInsightsClient() {
             <div className="space-y-4">
               <div className="relative overflow-hidden rounded-2xl border border-slate-700/80 bg-slate-900/80 p-4 shadow-lg shadow-slate-950/80">
                 <div
-                  className={`pointer-events-none absolute inset-x-[-40%] top-[-40%] h-32 bg-gradient-to-r ${sentimentColors[data.sentiment.overall]} opacity-20 blur-3xl`}
+                  className={`pointer-events-none absolute inset-x-[-40%] top-[-40%] h-32 bg-linear-to-r ${sentimentColors[data.sentiment.overall]} opacity-20 blur-3xl`}
                 />
                 <div className="relative space-y-2">
                   <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
@@ -227,7 +227,7 @@ export function MovieInsightsClient() {
                   </p>
                   <p className="inline-flex items-center gap-2 rounded-full bg-slate-900/90 px-3 py-1 text-xs font-semibold text-slate-100 ring-1 ring-slate-600/60">
                     <span
-                      className={`inline-block h-2.5 w-2.5 rounded-full bg-gradient-to-r ${sentimentColors[data.sentiment.overall]}`}
+                      className={`inline-block h-2.5 w-2.5 rounded-full bg-linear-to-r ${sentimentColors[data.sentiment.overall]}`}
                     />
                     {sentimentLabel[data.sentiment.overall]}
                   </p>

@@ -101,15 +101,20 @@ export async function aiSummarizeSentiment(reviews: string[]): Promise<Sentiment
       reviews.slice(0, 30).join("\n---\n"),
     ].join("\n");
 
-    const completion = await client.responses.create({
-      model: "gpt-4.1-mini",
-      input: prompt,
+    const completion = await client.chat.completions.create({
+      model: "gpt-4o-mini",
+      messages: [
+        {
+          role: "user",
+          content: prompt,
+        },
+      ],
       response_format: { type: "json_object" },
     });
 
-    const content = completion.output[0].content[0];
-    if (content?.type === "output_text") {
-      const parsed = JSON.parse(content.text) as SentimentSummary;
+    const content = completion.choices[0]?.message?.content;
+    if (content) {
+      const parsed = JSON.parse(content) as SentimentSummary;
       if (!parsed.summary || !parsed.overall) {
         return heuristicSentiment(reviews);
       }
